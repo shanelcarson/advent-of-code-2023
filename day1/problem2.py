@@ -2,25 +2,24 @@ import re
 
 
 def main():
-    sum = 0
     with open("input2.txt") as f:
         lines = f.readlines()
+        sum = 0
         num = []
+
+        rep = {
+            "one": "one1one",
+            "two": "two2two",
+            "three": "three3three",
+            "four": "four4four",
+            "five": "five5five",
+            "six": "six6six",
+            "seven": "seven7seven",
+            "eight": "eight8eight",
+            "nine": "nine9nine",
+        }
+
         for l in lines:
-            rep = {
-                "one": "one1one",
-                "two": "two2two",
-                "three": "three3three",
-                "four": "four4four",
-                "five": "five5five",
-                "six": "six6six",
-                "seven": "seven7seven",
-                "eight": "eight8eight",
-                "nine": "nine9nine",
-            }
-
-            rep = dict((re.escape(k), v) for k, v in rep.items())
-
             line = l
             for key in rep.keys():
                 line = re.sub(key, rep[key], line)
