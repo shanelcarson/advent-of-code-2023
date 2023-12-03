@@ -1,6 +1,6 @@
 def main():
-    sum = 0
     with open("input1.txt") as f:
+        sum = 0
         lines = f.readlines()
         for line in lines:
             num = ""
