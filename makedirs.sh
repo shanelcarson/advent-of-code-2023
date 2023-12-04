@@ -1,3 +1,5 @@
+#! /bin/bash
+
 if [[ ($# -eq 1)  && ($1 =~ ^[0-9]+$)]]; then
   echo "Adding day$1 directory"
 else
@@ -10,8 +12,18 @@ if [ -d ./day$1 ]; then
   exit 0
 fi
 
+echo "What language? (py/go)"
+
+read ext
+
+if [[ ! $ext =~ ^(py|go)$ ]]; then
+  echo "Not a good extension bro."
+  exit 0
+fi
+
+
 mkdir day$1; cd day$1; 
-touch problem1.py problem2.py input1.txt input2.txt;
+touch problem1.$ext problem2.$ext input1.txt input2.txt;
 cd ../;
 
 echo "Done.";
