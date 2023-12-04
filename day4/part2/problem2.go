@@ -33,7 +33,6 @@ func main() {
 			totalCards[id] = 1
 		}
 
-		if playing {
 			numStrs := strings.Split(tokens[1], " | ")
 			cardNums := strings.Split(numStrs[0], " ")
 			myNums := strings.Split(numStrs[1], " ")
@@ -62,9 +61,7 @@ func main() {
 					winningMatches += 1
 				}
 			}
-			if winningMatches == 0 {
-				playing = false
-			} else {
+			if winningMatches > 0 {	
 				for i := 1; i <= winningMatches; i++ {
 					if _, ok := totalCards[id+i]; !ok {
 						totalCards[id+i] = 0
@@ -72,8 +69,6 @@ func main() {
 					totalCards[id+i] += totalCards[id]
 				}
 			}
-		}
-
 	}
 	fmt.Println(totalCards)
 	for _, cardCount := range totalCards {
