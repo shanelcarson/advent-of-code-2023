@@ -23,9 +23,10 @@ fi
 
 
 mkdir day$1; cd day$1;
-if [[ $ext eq "go" ]]; then
+if [[ $ext -eq "go" ]]; then
   touch go.mod
-touch problem1.$ext problem2.$ext input1.txt input2.txt;
+fi
+touch problem1.$ext problem2.$ext sample.txt input1.txt input2.txt;
 cd ../;
 
 echo "Done.";
